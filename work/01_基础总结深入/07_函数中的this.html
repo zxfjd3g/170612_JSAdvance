@@ -18,8 +18,59 @@
   * test.call(obj)  test.apply(obj)
 前置知识:
   * 本质上任何函数在执行时都是通过某个对象调用的
+
+
 -->
 <script type="text/javascript">
+  function Person(color) {
+    console.log(this)
+    this.color = color;
+    this.getColor = function () {
+      console.log(this)
+      return this.color;
+    };
+    this.setColor = function (color) {
+      console.log(this)
+      this.color = color;
+    };
+  }
+
+  Person("red"); //this是谁?  window
+
+  var p = new Person("yello"); //this是谁?  p
+
+  p.getColor(); //this是谁?  p
+
+  var obj = {};
+  p.setColor.call(obj, "black"); //this是谁?  obj    通过函数对象的call方法来执行函数
+
+  var test = p.setColor;
+  test(); //this是谁?   window
+
+  function fun1() {
+    function fun2() {
+      console.log(this);
+    }
+
+    fun2(); //this是谁?  window
+  }
+  fun1();
+
+  /*
+  执行函数定义: 创建函数对象
+  执行/调用函数
+   */
+
+
+  function fn() {
+    console.log(this)
+  }
+  const obj2 = {}
+  const fn2 = fn.bind(obj2)   // bind不会改变原有函数的this, 产生了一个新的函数, 并绑定的this
+  fn() // window
+  fn2() // obj2
+
+
 </script>
 </body>
 </html>

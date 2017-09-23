@@ -25,6 +25,28 @@
   * ['属性名']: 编码麻烦, 但通用
 -->
 <script type="text/javascript">
+  const p = {
+    name: 'tom', // 属性: 属性值不是函数
+    setName: function (name) { // 方法: 属性值为函数
+      this.name = name
+    },
+    'age': 23,
+    'setAge': function (age) {
+      this.age = age
+    }
+  }
+  console.log(p.setName('Jack'), p.name) // undefined 'Jack'
+  p['setAge'](34)
+  console.log(p['age'])
+
+
+  // 记住: 一定要知道你要使用的数据的类型
+  function a() {
+    return function () {
+      
+    }
+  }
+  a()()
 
 </script>
 </body>

@@ -14,11 +14,17 @@
 2. 常见的回调函数?
   * DOM事件函数
   * 定时器函数
-  * ajax回调函数(后面学)
-  * 生命周期回调函数(后面学)
+  * ajax回调函数
+  * 生命周期回调函数
 -->
 <script type="text/javascript">
+  document.getElementById('btn').onclick = function () {
+    alert('点击了')
+  }
 
+  setTimeout(function () {
+    console.log('到点了')
+  }, 1000)
 </script>
 
 </body>

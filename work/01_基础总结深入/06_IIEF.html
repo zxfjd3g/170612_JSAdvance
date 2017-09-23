@@ -14,7 +14,14 @@
   * 不污染外部命名空间
 -->
 <script type="text/javascript">
-
+  (function (window) {
+    var a = 3
+    function foo() {
+      console.log(a)
+    }
+    window.foo = foo
+    window.xxx = {foo}
+  })(window)
 </script>
 
 </body>

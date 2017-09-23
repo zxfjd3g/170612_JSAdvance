@@ -11,8 +11,11 @@
   var obj1 = {n: 2}
   var obj2 = {m: 3}
   a[obj1] = 4
-  a[obj2] = 5
+  a[obj2] = 5 // 本质是覆盖
   console.log(a[obj1]) // 输出多少?
+  console.log(a)
+
+  // 对象如何转换为字符串: obj.toString()  '[object, object]'
 </script>
 </body>
 </html>

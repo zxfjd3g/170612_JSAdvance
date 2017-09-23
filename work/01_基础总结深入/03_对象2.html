@@ -11,6 +11,18 @@
   * 属性名不确定
 -->
 <script type="text/javascript">
+  var obj = {}
+  // 给对象添加一个属性: 'content-type': 'text/json'
+  //obj.content-type = 'text/json'
+  obj['content-type'] = 'text/json'
+  console.log(obj['content-type'])
+
+  let propName = 'my name'
+  let value = 'Tom'
+  // obj.propName = value
+  obj[propName] = value
+  console.log(obj[propName])
+
 </script>
 </body>
 </html>

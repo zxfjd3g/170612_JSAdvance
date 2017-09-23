@@ -17,10 +17,10 @@
   * 函数声明
   * 表达式
 4. 如何调用(执行)函数?
-  * test()
-  * new test()
-  * obj.test()
-  * test.call/apply(obj)
+  * test(): 直接调用
+  * new test(): 通过new来调用
+  * obj.test(): 通过对象来调用
+  * test.call/apply(obj): 通过call来调用
 -->
 <script type="text/javascript">
 
@@ -32,6 +32,24 @@
     3. 如果大于60, 输出: 算了吧!
     4. 其它, 输出: 刚好!
   */
+  function showInfo(age) {
+    if(age<18) {
+      console.log('未成年, 再等等!')
+    } else if(age>60) {
+      console.log('算了吧!')
+    } else {
+      console.log('刚好!')
+    }
+  }
+
+  showInfo(12)
+  showInfo(19)
+  showInfo(62)
+
+  var fn = function () {
+
+  }
+
 </script>
 </body>
 </html>

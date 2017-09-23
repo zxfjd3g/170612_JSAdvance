@@ -17,11 +17,11 @@
 
   var b = new A()
 
-  A.prototype = {
+  /*A.prototype = {  // 给显式原型重新赋值, 只会影响后面创建的对象
     n: 2,
     m: 3
-  }
-
+  }*/
+  A.prototype.m = 5 // 给原型对象添加属性, 对前后创建对象都有影响
   var c = new A()
   console.log(b.n, b.m, c.n, c.m)
 
@@ -38,10 +38,10 @@
   };
   var f = new F();
   f.a()
-  f.b()
   F.a()
   F.b()
 
+  f.b()
 </script>
 </body>
 </html>

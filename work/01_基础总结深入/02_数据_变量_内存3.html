@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_关于引用变量赋值问题</title>
+</head>
+<body>
+<!--
+关于引用变量赋值问题
+  * 2个引用变量指向同一个对象, 通过一个引用变量修改对象内部数据, 另一个引用变量也看得见
+  * 2个引用变量指向同一个对象,让一个引用变量指向另一个对象, 另一个引用变量还是指向原来的对象
+-->
+<script type="text/javascript">
+  // 2个引用变量指向同一个对象, 通过一个引用变量修改对象内部数据, 另一个引用变量也看得见
+  var a1 = {n: 3}
+  var a2 = a1
+  a1.n = 4
+  console.log(a2.n) // 4
+
+  function fn1(a) {
+    a.n = 5
+  }
+  fn1(a1)
+  console.log(a2.n, a1.n) // 5 5
+
+  // 2个引用变量指向同一个对象,让一个引用变量指向另一个对象, 另一个引用变量还是指向原来的对象
+  var a3 = {n: 6}
+  var a4 = a3
+  /*a3 = {n: 7}
+  console.log(a4.n) // 6*/
+  function fn2(a) {
+    a = {n: 8}
+  }
+  fn2(a3)
+  console.log(a3.n, a4.n) // 6 6
+
+</script>
+</body>
+</html>

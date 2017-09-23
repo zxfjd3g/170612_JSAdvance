@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01_数据类型</title>
+</head>
+<body>
+<!--
+1. 分类(2大类)
+  * 基本(值)类型
+    * Number: 任意数值
+    * String: 任意文本
+    * Boolean: true/false
+    * undefined: undefined
+    * null: null
+  * 对象(引用)类型
+    * Object: 任意对象
+    * Array: 特别的对象类型(下标/内部数据有序)
+    * Function: 特别的对象类型(可执行)
+2. 判断
+  * typeof:
+    * 可以区别: 数值, 字符串, 布尔值, undefined, function
+    * 不能区别: null与对象, 一般对象与数组
+  * instanceof
+    * 专门用来判断对象数据的类型: Object, Array与Function
+  * ===
+    * 可以判断: undefined和null
+-->
+
+<script type="text/javascript">
+  // 基本(值)类型
+  var a // 定义了变量, 但没有有赋值
+  console.log(a, typeof a==='undefined', a===undefined) // undefined true true
+  console.log(a==='undefined', typeof a===undefined) // false false
+  a = 3
+  console.log(typeof a==='number')
+  a = 'abc'
+  console.log(typeof a==='string')
+  a = true
+  console.log(typeof a==='boolean')
+  a = null
+  console.log(a, typeof a==='object', a===null) // null, true, true
+
+  // 引用/对象类型
+  const obj = {
+    a1: [1, 'abc', true, console.log]
+  }
+
+  console.log(obj instanceof Object) // true
+  console.log(obj.a1 instanceof Object, obj.a1 instanceof Array) //true, true
+  console.log(obj.a1[3] instanceof Function, typeof obj.a1[3]==='function') // true true
+  obj.a1[3]('atguigu')
+
+</script>
+</body>
+</html>

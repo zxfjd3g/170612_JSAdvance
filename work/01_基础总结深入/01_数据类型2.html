@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01_相关问题</title>
+</head>
+<body>
+<!--
+1. undefined与null的区别?
+  * undefined代表没有赋值
+  * null代表赋值了, 只是值为null
+2. 什么时候给变量赋值为null呢?
+  * var a = null //a将指向一个对象, 但对象此时还没有确定
+  * a = null //让a指向的对象成为垃圾对象
+3. 严格区别变量类型与数据类型?
+  * js的变量本身是没有类型的, 变量的类型实际上是变量内存中数据的类型
+  * 变量类型:
+    * 基本类型: 保存基本类型数据的变量
+    * 引用类型: 保存对象地址值的变量
+  * 数据对象
+    * 基本类型
+    * 对象类型
+-->
+
+<script type="text/javascript">
+  // 1. undefined与null的区别?
+  var a  //1) 定义变量没有赋值
+  console.log(a) // undefined
+  a = {} // 2) 对象中不存在的属性
+  console.log(a.a) // undefined
+  function fn() { // 3) 函数没有指定返回值, 调用得到undefined
+    // return
+  }
+  fn() // undefined
+
+  a = null
+  console.log(a) // null
+  a = {
+    a: null
+  }
+  console.log(a.a) // null
+
+  //2. 什么时候给变量赋值为null呢?
+  // 初始时, 准备保存对象的变量
+  var a = null
+  // 后面做一些事件后产生数据
+  a = {n: 2, m: 'abc'}
+  // 结束时, 让变量指向的对象成为垃圾对象
+  a = null // a没有释放
+
+  var b = 3
+  console.log(typeof 4, typeof b)
+
+  b = {}  // b是引用变量, 内存中保存是对象内存的地址值
+  console.log({} instanceof Object, b instanceof Object)
+
+</script>
+</body>
+</html>

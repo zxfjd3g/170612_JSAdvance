@@ -17,8 +17,34 @@
     7. 创建子类型的对象: 可以调用父类型的方法
   2. 关键
     1. 子类型的原型为父类型的一个实例对象
+    2. 子类型原型的构造器是子类
 -->
 <script type="text/javascript">
+  function Parent() {
+    this.pProp = 'The Parent'
+  }
+  Parent.prototype.showPProp = function () {
+    console.log('showPProp()', this.pProp)
+  }
+
+  function Child() {
+    this.cProp = 'The Child'
+  }
+  // 子类原型指向父类实例
+  Child.prototype = new Parent()
+  // 子类原型的构造器为子类
+  Child.prototype.constructor = Child
+  Child.prototype.showCProp = function () {
+    console.log('showCProp()', this.cProp)
+  }
+
+
+  var c = new Child()
+  c.showPProp()
+  // c.toString() //Child.prototype = {}
+  console.log(c.constructor,c) // Child
+
+  c.showCProp()
 
 </script>
 </body>

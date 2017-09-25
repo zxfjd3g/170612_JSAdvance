@@ -11,7 +11,28 @@
 2. 利用super()借用父类型构建函数初始化相同属性
 -->
 <script type="text/javascript">
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+  }
+  Person.prototype.setName = function (name) {
+    this.name = name
+  }
 
+  function Student(name, age, price) { // 身价
+    Person.call(this, name, age) // 相当于: this.Person(name, age)
+    this.price = price
+  }
+  Student.prototype = new Person()
+  Student.prototype.constructor = Student
+  Student.prototype.setPrice = function (price) {
+    this.price = price
+  }
+
+  var s = new Student('Jack', 18, 10000)
+  s.setName('Bob')
+  s.setPrice(11000)
+  console.log(s.name, s.age, s.price, s)
 </script>
 </body>
 </html>

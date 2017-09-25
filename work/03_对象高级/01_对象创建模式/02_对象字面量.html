@@ -12,6 +12,25 @@
   * 问题: 如果创建多个对象, 有重复代码
 -->
 <script type="text/javascript">
+  var p = {
+    name: 'Tom',
+    age: 12,
+    setName (name) {
+      this.name = name
+    }
+  }
+
+  var p2 = {
+    name: 'Tom2',
+    age: 13,
+    setName (name) {
+      this.name = name
+    }
+  }
+
+  // 测试
+  p.setName('Jack')
+  console.log(p.name, p.age)
 </script>
 </body>
 </html>

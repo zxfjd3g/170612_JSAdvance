@@ -12,6 +12,17 @@
 -->
 <script type="text/javascript">
 
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+  }
+  Person.prototype.setName = function (name) {
+    this.name = name
+  }
+  var p1 = new Person('Tom', 12)
+  var p2 = new Person('Tom2', 13)
+  console.log(p1, p2, p1.__proto__ === p2.__proto__)
+
 </script>
 </body>
 </html>

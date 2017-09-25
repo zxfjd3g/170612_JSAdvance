@@ -6,12 +6,38 @@
 </head>
 <body>
 <!--
-方式三: 工厂模式
+方式三: 工厂函数模式
   * 套路: 通过工厂函数动态创建对象并返回
   * 适用场景: 需要创建多个对象
   * 问题: 对象没有一个具体的类型, 都是Object类型
 -->
 <script type="text/javascript">
+  function createPerson(name, age) { // 工厂函数: 每次调用都返回一个新的对象
+    var p = {
+      name,
+      age,
+      setName (name) {
+        this.name = name
+      }
+    }
+
+    return p
+  }
+
+  function createDog(name) {
+    var dog = {
+      name
+    }
+    return dog
+  }
+
+  var p1 = createPerson('Tom', 12)
+  var p2 = createPerson('Tom2', 13)
+
+  var dog = createDog('旺财')
+
+  // dog与p1类型上没有区别
+
 </script>
 </body>
 </html>

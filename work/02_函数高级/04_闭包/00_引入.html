@@ -11,8 +11,44 @@
 <button>测试3</button>
 <!--
 需求: 点击某个按钮, 提示"点击的是第n个按钮"
+
+循环遍历加监听, 得到当前的下标
 -->
 <script type="text/javascript">
+  const btns = document.getElementsByTagName('button')
+  /*for (var i = 0,length=btns.length; i<length; i++) {
+    var btn = btns[i]
+    btn.onclick = function () {
+      alert(i+1)
+    }
+  }*/
+
+  // 使用let
+  /*for (let i = 0,length=btns.length; i<length; i++) {
+   var btn = btns[i]
+   btn.onclick = function () {
+   alert(i+1)
+   }
+   }*/
+
+  // 利用对象存储
+  /*for (var i = 0,length=btns.length; i<length; i++) {
+    var btn = btns[i]
+    btn.index = i
+    btn.onclick = function () {
+      alert(this.index+1)
+    }
+  }*/
+
+  // 利用闭包
+  for (var i = 0,length=btns.length; i<length; i++) {
+    (function (i) {
+      var btn = btns[i]
+      btn.onclick = function () {
+        alert(i+1)
+      }
+    })(i)
+  }
 </script>
 </body>
 

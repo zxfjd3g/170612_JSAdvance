@@ -14,6 +14,22 @@
   * 及时释放
 -->
 <script type="text/javascript">
+  function fn1() {
+    var a = 3
+    function fn2() {
+      a++
+      console.log(a)
+    }
+    return fn2
+  }
+  var f = fn1()
+  f() // 4
+  f() // 5
+  f() // 6
+
+  //及时释放
+  f = null
+
 </script>
 </body>
 </html>

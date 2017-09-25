@@ -10,6 +10,18 @@
 2. 整个过程中产生了几个执行上下文?
 -->
 <script type="text/javascript">
+  console.log('global begin: '+ i)
+  var i = 1
+  foo(i);
+  function foo(i) {  // 递归调用: 函数内部调用自己
+    if (i == 4) {
+      return;
+    }
+    console.log('foo() begin:' + i);
+    foo(i + 1);
+    console.log('foo() end:' + i);
+  }
+  console.log('global end: ' + i)
 </script>
 
 </body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>06_Object.create()</title>
+</head>
+<body>
+<!--
+方式五: 根据一个对象创建一个子对象
+-->
+<script type="text/javascript">
+  var obj1 = {
+    name: 'Tom',
+    setName (name) {
+      this.name = name
+    }
+  }
+
+  var obj2 = Object.create(obj1)
+  console.log(obj2, obj2.name) // obj2是obj1的子对象
+  obj2.setName('Jack')
+  console.log(obj2.name)
+
+  var obj3 = Object.create(obj1, {
+    age: {
+      writable: true,
+      value: 12
+    },
+    price: {
+      writable: false, // 不能修改
+      value: 10000
+    }
+  })
+  console.log(obj3)
+  obj3.age = 13
+  obj3.price = 9000
+  console.log(obj3)
+
+  // obj1.__proto__ = obj2
+  var obj4 = {sex: '男'}
+  obj4.__proto__ = obj1
+  console.log(obj4)
+
+</script>
+</body>
+</html>

@@ -25,6 +25,25 @@
   * 后面在某个时刻才会执行回调代码
 -->
 <script type="text/javascript">
+
+  setTimeout(function () {
+    console.log('000000')
+  }, 0)
+
+  setTimeout(function () {
+    console.log('3333333')
+
+  }, 3000)
+  setTimeout(function () {
+    console.log('222222')
+    alert('22222222')
+  }, 2000)
+
+  console.log('alert之前')
+  alert('-------') // 暂停当前主线程的执行并停止计时, 确定后恢复执行/计时
+  console.log('alert之后')
+
+
 </script>
 </body>
 </html>
